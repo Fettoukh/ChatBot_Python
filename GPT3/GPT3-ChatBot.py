@@ -1,3 +1,22 @@
+#GPT-3 est Generative Pre-trained Transformer 3, 
+#C'est un modèle de langage formé sur un grand nombre d'ensembles de données d'Internet et développé par une société appelée OpenAI. 
+#GPT-3 est proposé via l'API, actuellement, l'API est dans une version bêta contrôlée et il y a une liste d'attente pour accéder à cette incroyable API.
+
+#vous devez avoir accès à l'API bêta GPT-3. Il est actuellement disponible uniquement sur invitation, vous pouvez demander l'accès en utilisant le lien "beta.openai.com". 
+#Il vous mènera à un formulaire où quelques questions seront posées sur votre organisation et le projet que vous envisagez de mettre en œuvre.
+
+#Ici, nous n'allons pas passer d'exemples de formation mais simplement accéder directement à l'API et l'utiliser comme un chatbot.
+#On commence par importer les packages requis
+#Nous allons passer trois arguments au modèle : 
+#    Engine - Nous avons le choix entre quatre options, à savoir Davinci, ADA, Babbage et Curie. Nous utiliserons Davinci car c'est le moteur le plus puissant entraîné avec 175 milliards de paramètres
+#    Temperature — Elle est généralement comprise entre 0 et 1, elle est utilisée pour contrôler le caractère aléatoire de la sortie générée. Une valeur de 0 rend le modèle déterministe, c'est-à-dire que la sortie sera la même à chaque fois que nous exécuterons, tandis que d'un autre côté, avec 1 il y aura un fort caractère aléatoire dans la sortie générée.
+#    max_tokens — longueur d'achèvement maximale
+#Dans le script ci-dessous, la question qui doit être posée est transmise à la variable « prompt », puis transmise au modèle à l'aide de la fonction submit_request. Le résultat est stocké dans la variable 'response' comme indiqué ci-dessous,
+
+#Dans l'exemple ci-dessus, comme vous le voyez, le modèle peut fournir une très bonne réponse à la question posée sans ajustement ni réglage. 
+#Étant donné que nous ne fournissons ici aucun exemple de formation, la sortie du modèle n'a pas toujours besoin d'être une réponse, elle pourrait proposer un ensemble de questions similaire ou un contenu lié à l'entrée transmise. 
+#La performance peut être améliorée en fournissant quelques exemples de formation
+
 import openai as ai
 
 def chat(question,chat_log = None) -> str:
@@ -43,3 +62,6 @@ if __name__ == "__main__":
         if question == "stop":
             break
         print("AI: ",chat(question,start_chat_log))
+        
+        
+ 
